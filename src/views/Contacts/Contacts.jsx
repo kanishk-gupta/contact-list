@@ -73,11 +73,11 @@ const Contacts = ({ addNewContact, contactList, toggleFavourite, deleteContact, 
 	};
 
 	const renderContactList = () => {
-		const filteredList = contactList.filter(contact => (tabValue && contact && ((tabValue === 'favouties' && contact.favourite) || tabValue === 'all' )) );
+		const filteredList = contactList.filter(contact => (tabValue && contact && ((tabValue === 'favourites' && contact.favourite) || tabValue === 'all' )) );
 		if (!filteredList || !filteredList.length) {
 			return (
 				<Grid item xs={12}>
-					<Typography variant="subtitle2">{tabValue !== 'favouties' ? 'No contacts added yet!' : 'No favourite contacts yet!'}</Typography>
+					<Typography variant="subtitle2">{tabValue !== 'favourites' ? 'No contacts added yet!' : 'No favourite contacts yet!'}</Typography>
 				</Grid>
 			);
 		}
@@ -104,7 +104,7 @@ const Contacts = ({ addNewContact, contactList, toggleFavourite, deleteContact, 
 			</div>
 			<Tabs value={tabValue} onChange={handleTabChange} aria-label="basic tabs example">
 				<Tab label="All" value="all"  />
-				<Tab label="Favouties" value="favouties"  />
+				<Tab label="Favourite" value="favourites"  />
 			</Tabs>
 			<Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} className="grid-container">
 				{contactList && contactList.length ? (
